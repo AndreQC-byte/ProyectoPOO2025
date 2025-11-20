@@ -9,7 +9,5 @@ package HOSPITAL.Tipos_de_empleados;
  * @author wedee
  */
 public class cEmpleado {
-    protected String login;
-    protected String password;
     
 }

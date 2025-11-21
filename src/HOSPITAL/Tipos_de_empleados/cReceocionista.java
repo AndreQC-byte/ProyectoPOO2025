@@ -8,7 +8,11 @@ package HOSPITAL.Tipos_de_empleados;
  *
  * @author O26302
  */
-public abstract class cReceocionista extends cEmpleado{
+public class cReceocionista extends cEmpleado{
+
+    public cReceocionista(String login, String password, String DNI, String nombre, String apellidos, String datosContacto) {
+        super(login, password, DNI, nombre, apellidos, datosContacto);
+    }
 
   
 

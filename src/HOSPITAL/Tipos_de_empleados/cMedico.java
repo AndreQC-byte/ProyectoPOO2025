@@ -9,6 +9,10 @@ package HOSPITAL.Tipos_de_empleados;
  * @author wedee
  */
 public class cMedico extends cEmpleado{
+
+    public cMedico(String login, String password, String DNI, String nombre, String apellidos, String datosContacto) {
+        super(login, password, DNI, nombre, apellidos, datosContacto);
+    }
     
     
     

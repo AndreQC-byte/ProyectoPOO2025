@@ -11,6 +11,13 @@ package HOSPITAL.Tipos_de_empleados;
 public class cEmpleado {
     protected String login;
     protected String password;
+    protected String role;
+
+    public cEmpleado(String login, String password, String role) {
+        this.login = login;
+        this.password = password;
+        this.role = role;
+    }
     
     
 }

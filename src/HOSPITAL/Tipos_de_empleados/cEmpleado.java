@@ -8,16 +8,24 @@ package HOSPITAL.Tipos_de_empleados;
  *
  * @author wedee
  */
-public class cEmpleado {
+public abstract class  cEmpleado {
     protected String login;
     protected String password;
-    protected String role;
+    protected String DNI;
+    protected String nombre;
+    protected String apellidos;
+    protected String datosContacto;
 
-    public cEmpleado(String login, String password, String role) {
+    public cEmpleado(String login, String password, String DNI, String nombre, String apellidos, String datosContacto) {
+        
         this.login = login;
         this.password = password;
-        this.role = role;
+        this.DNI= DNI;
+        this.nombre= nombre;
+        this.apellidos= apellidos;
+        this.datosContacto = datosContacto;
     }
-    
+
+   
     
 }

@@ -8,7 +8,8 @@ package HOSPITAL.Tipos_de_empleados;
  *
  * @author wedee
  */
-public class cMedico {
+public class cMedico extends cEmpleado{
+    
     
     
 }

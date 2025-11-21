@@ -8,22 +8,23 @@ package HOSPITAL.Tipos_de_empleados;
  *
  * @author ASUS
  */
-public class Administrador extends Persona {
+public abstract class Administrador extends cEmpleado {
     private String rol;
     private String username;
-    private String password;
 
-    public Administrador(String rol, String username, String password, String dni, String nombre, String apellidos, String datosContacto) {
-        super(dni, nombre, apellidos, datosContacto);
+    public Administrador(String rol, String username, String login, String password, String role, String dni, String nombre, String apellidos, String datosContacto) {
+        super(login, password, role, dni, nombre, apellidos, datosContacto);
         this.rol = rol;
         this.username = username;
-        this.password = password;
-    }
-
-    @Override
-    public String getInfo() {
-        return "";
     }
     
+   
+            
+
+    
+
+  
+    
+  
     
 }

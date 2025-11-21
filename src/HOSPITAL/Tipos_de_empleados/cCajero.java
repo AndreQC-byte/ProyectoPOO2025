@@ -8,22 +8,41 @@ package HOSPITAL.Tipos_de_empleados;
  *
  * @author wedee
  */
-public class cCajero extends Persona {
-    private String rol;
-    private String userName;
-    private String password;
+public abstract class cCajero extends cEmpleado {
+  
 
-    public cCajero(String rol, String userName, String password, String dni, String nombre, String apellidos, String datosContacto) {
-        super(dni, nombre, apellidos, datosContacto);
-        this.rol = rol;
-        this.userName = userName;
+    public cCajero(String rol, String userName, String login, String password, String role, String dni, String nombre, String apellidos, String datosContacto) {
+        super(login, password, role, dni, nombre, apellidos, datosContacto);
+       
+    }
+    
+
+   
+
+  
+
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
         this.password = password;
     }
 
-    @Override
-    public String getInfo() {
-        return "";
+    public String getLogin() {
+        return login;
     }
+
+    public void setLogin(String login) {
+        this.login = login;
+    }
+
+   
+
+    
+
+    
     
     
 }

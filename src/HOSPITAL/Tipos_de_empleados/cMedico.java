@@ -10,4 +10,5 @@ package HOSPITAL.Tipos_de_empleados;
  */
 public class cMedico {
     
+    
 }

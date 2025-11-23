@@ -24,11 +24,11 @@ public class GestorEmpleados {
         this.nroEmpleados++;
     }
     
-    public void Eliminar(String Nombre)
+    public void Eliminar(String DNI)
     {
         for(int i=0;i<nroEmpleados;i++)
         {
-            if(listaEmpleados[i].getNombre().equalsIgnoreCase(Nombre))
+            if(listaEmpleados[i].getNombre().equalsIgnoreCase(DNI))
             {
                 for(int j=i;j<nroEmpleados-1;j++)
                 {

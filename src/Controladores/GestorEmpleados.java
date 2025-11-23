@@ -39,5 +39,21 @@ public class GestorEmpleados {
             }
         }
     }
+
+    public cEmpleado[] getListaEmpleados() {
+        return listaEmpleados;
+    }
+
+    public void setListaEmpleados(cEmpleado[] listaEmpleados) {
+        this.listaEmpleados = listaEmpleados;
+    }
+
+    public int getNroEmpleados() {
+        return nroEmpleados;
+    }
+
+    public void setNroEmpleados(int nroEmpleados) {
+        this.nroEmpleados = nroEmpleados;
+    }
     
 }

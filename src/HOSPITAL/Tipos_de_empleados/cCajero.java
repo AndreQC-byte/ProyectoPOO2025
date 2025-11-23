@@ -8,7 +8,7 @@ package HOSPITAL.Tipos_de_empleados;
  *
  * @author wedee
  */
-public abstract class cCajero extends cEmpleado {
+public class cCajero extends cEmpleado {
 
     public cCajero(String login, String password, String DNI, String nombre, String apellidos, String datosContacto) {
         super(login, password, DNI, nombre, apellidos, datosContacto);

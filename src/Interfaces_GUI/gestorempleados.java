@@ -34,7 +34,7 @@ public class gestorempleados extends javax.swing.JFrame {
         this.jTable1.setModel(modelo);
         
         refGI = new GestorEmpleados();
-    }
+    } 
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents

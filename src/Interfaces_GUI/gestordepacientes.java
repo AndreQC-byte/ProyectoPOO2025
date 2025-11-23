@@ -4,8 +4,12 @@
  */
 package Interfaces_GUI;
 
+import Controladores.Gestionpacientes;
+import HOSPITAL.Tipos_de_empleados.cPaciente;
 import java.util.logging.Level;
+import javax.swing.JOptionPane;
 import javax.swing.UnsupportedLookAndFeelException;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -13,9 +17,21 @@ import javax.swing.UnsupportedLookAndFeelException;
  */
 public class gestordepacientes extends javax.swing.JFrame {
     
+    private DefaultTableModel modelo;
+    private Gestionpacientes gestor;
     
     public gestordepacientes() {
         initComponents();
+        
+        modelo=new DefaultTableModel();
+        modelo.addColumn("Nombre");
+        modelo.addColumn("Apellidos");
+        modelo.addColumn("DNI");
+        modelo.addColumn("Fecha Nac.");
+        modelo.addColumn("Sexo");
+        this.jTable1.setModel(modelo);
+        
+        gestor=new Gestionpacientes();
     }
 
     /**
@@ -74,17 +90,42 @@ public class gestordepacientes extends javax.swing.JFrame {
         });
 
         jRadioButton1.setText("Femenino");
+        jRadioButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton1ActionPerformed(evt);
+            }
+        });
 
         jRadioButton2.setText("Masculino");
+        jRadioButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton2ActionPerformed(evt);
+            }
+        });
 
         jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel8.setText("INGRESE SUS DATOS");
 
         jButton1.setText("REGISTAR ");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("MODIFICAR ");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jButton3.setText("ELIMINAR ");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -97,6 +138,11 @@ public class gestordepacientes extends javax.swing.JFrame {
 
             }
         ));
+        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable1MouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(jTable1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -202,10 +248,142 @@ public class gestordepacientes extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField6ActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        String nom = this.jTextField1.getText();
+        String ape = this.jTextField2.getText();
+        String dni = this.jTextField3.getText();
+        String fnac = this.jTextField4.getText();
+        String contacto = this.jTextField6.getText();
+        String emergencia = this.jTextField7.getText();
+        String sexo="";
+        if(jRadioButton2.isSelected()){
+            sexo="Masculino";   
+        }else if(jRadioButton1.isSelected()){
+            sexo="Femenino";
+        }
+        cPaciente p = new cPaciente(nom, ape, dni, fnac, sexo, contacto, emergencia);
+
+         gestor.registrar(p);
+         this.jTextField3.setText("");
+         this.jTextField1.setText("");
+         this.jTextField2.setText("");
+         this.jTextField4.setText("");
+         this.jTextField6.setText("");
+         this.jTextField7.setText("");
+
+        cargarTabla();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jRadioButton2ActionPerformed
+
+    private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jRadioButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:                                       
+         int fila = jTable1.getSelectedRow();
+
+         if(fila < 0){
+             JOptionPane.showMessageDialog(this, "Seleccione una fila");
+             return;
+        }
+
+         String nom = jTextField1.getText();
+         String ape = jTextField2.getText();
+         String dni = jTextField3.getText();
+         String sexo = jRadioButton2.isSelected() ? "Masculino" : "Femenino";
+         String fecha=jTextField4.getText();
+
+         cPaciente nuevo = new cPaciente(nom, ape, dni,fecha, sexo);
+
+         gestor.modificar(dni,nuevo);
+         this.jTextField3.setText("");
+         this.jTextField1.setText("");
+         this.jTextField2.setText("");
+         this.jTextField4.setText("");
+         this.jTextField6.setText("");
+         this.jTextField7.setText("");
+
+         cargarTabla();
+         JOptionPane.showMessageDialog(this, "Registro modificado");
+
+        
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+        int fila = jTable1.getSelectedRow();
+
+        if(fila < 0){
+        JOptionPane.showMessageDialog(this, "Seleccione una fila");
+        return;
+        }
+
+    // Tomamos el DNI de la fila seleccionada
+        String dni = jTable1.getValueAt(fila, 2).toString();
+
+        gestor.eliminar_paciente(dni);
+        this.jTextField3.setText("");
+         this.jTextField1.setText("");
+         this.jTextField2.setText("");
+         this.jTextField4.setText("");
+         this.jTextField6.setText("");
+         this.jTextField7.setText("");
+        cargarTabla();
+
+        JOptionPane.showMessageDialog(this, "Paciente eliminado");
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
+        // TODO add your handling code here:
+        int fila = jTable1.getSelectedRow();
+
+        if(fila < 0){
+        JOptionPane.showMessageDialog(this, "Seleccione una fila");
+        return;
+        }
+        
+    // Tomamos el DNI de la fila seleccionada
+        String nombre = jTable1.getValueAt(fila, 0).toString();
+        String apellido = jTable1.getValueAt(fila, 1).toString();
+        String dni = jTable1.getValueAt(fila, 2).toString();
+        String fecha = jTable1.getValueAt(fila, 3).toString();
+        String sexo = jTable1.getValueAt(fila, 4).toString();
+
+        this.jTextField3.setText(dni);
+        this.jTextField1.setText(nombre);
+        this.jTextField2.setText(apellido);
+        this.jTextField4.setText(fecha);
+        
+    }//GEN-LAST:event_jTable1MouseClicked
+    private void cargarTabla(){
+        int filas= this.jTable1.getRowCount();
+        for(int i=0;i<filas;i++){
+            modelo.removeRow(0);
+        }
+        cPaciente[]arreglo=gestor.getLista();
+        String[] datos=new String[7];
+        for(int i=0; i<gestor.getCont();i++){
+           datos[0]=arreglo[i].getNombre();
+           datos[1]=arreglo[i].getApellidos();
+           datos[2]=arreglo[i].getDNI();
+           datos[3]=arreglo[i].getFecha_nacimiento();
+           datos[4]=arreglo[i].getSexo();
+           datos[5]=arreglo[i].getDatosContacto();
+           datos[6]=arreglo[i].getContactoEmergencia();
+           modelo.addRow(datos);
+        }
+         
+    }
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
+        
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.

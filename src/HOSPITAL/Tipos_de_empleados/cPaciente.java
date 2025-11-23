@@ -15,14 +15,23 @@ public class cPaciente {
     protected String sexo;
     protected String datosContacto,contactoEmergencia;
 
-    public cPaciente(String DNI, String nombre, String apellidos, String fecha_nacimiento, String sexo, String datosContacto, String contactoEmergencia) {
-        this.DNI = DNI;
+    public cPaciente(String nombre, String apellidos,String DNI, String fecha_nacimiento, String sexo, String datosContacto, String contactoEmergencia) {
         this.nombre = nombre;
         this.apellidos = apellidos;
+        this.DNI = DNI;
         this.fecha_nacimiento = fecha_nacimiento;
         this.sexo = sexo;
         this.datosContacto = datosContacto;
         this.contactoEmergencia = contactoEmergencia;
+    }
+
+    public cPaciente(String nom, String ape, String dni, String fecha,String sexo) {
+        this.nombre = nom;
+        this.apellidos = ape;
+        this.DNI = dni;
+        this.fecha_nacimiento = fecha;
+        this.sexo = sexo;
+        
     }
 
     public String getDNI() {

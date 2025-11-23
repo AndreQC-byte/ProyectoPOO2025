@@ -19,10 +19,25 @@ public class GestorEmpleados {
         this.nroEmpleados = 0;
     }
     
-    public void AgregarEmpleado(String pUsername, String pPassword, String pRole){
-        this.listaEmpleados[this.nroEmpleados] = new cEmpleado(pUsername, pPassword, pRole);
+    public void AgregarEmpleado(cEmpleado empleado){
+        this.listaEmpleados[this.nroEmpleados] = empleado;
+        this.nroEmpleados++;
     }
     
-    
+    public void Eliminar(String Nombre)
+    {
+        for(int i=0;i<nroEmpleados;i++)
+        {
+            if(listaEmpleados[i].getNombre().equalsIgnoreCase(Nombre))
+            {
+                for(int j=i;j<nroEmpleados-1;j++)
+                {
+                    listaEmpleados[j]=listaEmpleados[j+1];
+                }
+                listaEmpleados[nroEmpleados-1]=null;
+                nroEmpleados--;
+            }
+        }
+    }
     
 }

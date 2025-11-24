@@ -35,6 +35,9 @@ public class Gestionpacientes {
                 this.listapacientes[i].setApellidos(nueva_data.getApellidos());
                 this.listapacientes[i].setDNI(nueva_data.getDNI());
                 this.listapacientes[i].setFecha_nacimiento(nueva_data.getFecha_nacimiento());
+                this.listapacientes[i].setSexo(nueva_data.getSexo());
+                this.listapacientes[i].setDatosContacto(nueva_data.getDatosContacto());
+                this.listapacientes[i].setContactoEmergencia(nueva_data.getContactoEmergencia());
             }
             
         }

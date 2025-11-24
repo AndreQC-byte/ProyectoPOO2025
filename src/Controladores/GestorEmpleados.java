@@ -5,6 +5,7 @@
 package Controladores;
 
 import HOSPITAL.Tipos_de_empleados.cEmpleado;
+import HOSPITAL.Tipos_de_empleados.cPaciente;
 
 /**
  *
@@ -39,6 +40,27 @@ public class GestorEmpleados {
             }
         }
     }
+    
+   public void modificar(String DNI_empleado, cEmpleado nueva_data){
+        for (int i = 0; i < this.nroEmpleados; i++) {
+            if (this.listaEmpleados[i].getDNI().equals(DNI_empleado)){
+                this.listaEmpleados[i].setNombre(nueva_data.getNombre());
+                this.listaEmpleados[i].setApellidos(nueva_data.getApellidos());
+                this.listaEmpleados[i].setDNI(nueva_data.getDNI());
+         
+                this.listaEmpleados[i].setDatosContacto(nueva_data.getDatosContacto());
+               
+            }
+            
+        }
+        
+        
+    }
+            
+            
+            
+            
+            
 
     public cEmpleado[] getListaEmpleados() {
         return listaEmpleados;

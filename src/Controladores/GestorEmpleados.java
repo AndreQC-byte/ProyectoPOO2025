@@ -5,7 +5,6 @@
 package Controladores;
 
 import HOSPITAL.Tipos_de_empleados.cEmpleado;
-import HOSPITAL.Tipos_de_empleados.cPaciente;
 
 /**
  *
@@ -29,7 +28,7 @@ public class GestorEmpleados {
     {
         for(int i=0;i<nroEmpleados;i++)
         {
-            if(listaEmpleados[i].getNombre().equalsIgnoreCase(DNI))
+            if(listaEmpleados[i].getNombres().equalsIgnoreCase(DNI))
             {
                 for(int j=i;j<nroEmpleados-1;j++)
                 {
@@ -43,10 +42,10 @@ public class GestorEmpleados {
     
    public void modificar(String DNI_empleado, cEmpleado nueva_data){
         for (int i = 0; i < this.nroEmpleados; i++) {
-            if (this.listaEmpleados[i].getDNI().equals(DNI_empleado)){
-                this.listaEmpleados[i].setNombre(nueva_data.getNombre());
+            if (this.listaEmpleados[i].getDni().equals(DNI_empleado)){
+                this.listaEmpleados[i].setNombres(nueva_data.getNombres());
                 this.listaEmpleados[i].setApellidos(nueva_data.getApellidos());
-                this.listaEmpleados[i].setDNI(nueva_data.getDNI());
+                this.listaEmpleados[i].setDni(nueva_data.getDNI());
          
                 this.listaEmpleados[i].setDatosContacto(nueva_data.getDatosContacto());
                

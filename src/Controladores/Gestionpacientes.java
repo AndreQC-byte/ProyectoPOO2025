@@ -30,11 +30,11 @@ public class Gestionpacientes {
     }
     public void modificar(String DNI_paciente, cPaciente nueva_data){
         for (int i = 0; i < cont; i++) {
-            if (this.listapacientes[i].getDNI().equals(DNI_paciente)){
-                this.listapacientes[i].setNombre(nueva_data.getNombre());
-                this.listapacientes[i].setApellidos(nueva_data.getApellidos());
-                this.listapacientes[i].setDNI(nueva_data.getDNI());
-                this.listapacientes[i].setFecha_nacimiento(nueva_data.getFecha_nacimiento());
+            if (this.listapacientes[i].getDni().equals(DNI_paciente)){
+                this.listapacientes[i].setDni(nueva_data.getNombres());
+                this.listapacientes[i].setApellidos(nueva_data.getNombres());
+                this.listapacientes[i].setDni(nueva_data.getDni());
+                this.listapacientes[i].setFechaNacimiento(nueva_data.getFechaNacimiento());
                 this.listapacientes[i].setSexo(nueva_data.getSexo());
                 this.listapacientes[i].setDatosContacto(nueva_data.getDatosContacto());
                 this.listapacientes[i].setContactoEmergencia(nueva_data.getContactoEmergencia());
@@ -47,7 +47,7 @@ public class Gestionpacientes {
     
     public void eliminar_paciente(String DNI){
         for(int i=0;i<cont;i++){
-            if(listapacientes[i].getDNI().equalsIgnoreCase(DNI)){
+            if(listapacientes[i].getDni().equalsIgnoreCase(DNI)){
                 
                 listapacientes[i]=listapacientes[cont-1];
                 

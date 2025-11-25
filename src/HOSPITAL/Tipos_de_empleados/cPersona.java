@@ -8,18 +8,18 @@ package HOSPITAL.Tipos_de_empleados;
  *
  * @author User
  */
-public class cPersona {
-    // Persona.java
-public abstract class Persona {
-    private String dni;
-    private String nombres;
-    private String apellidos;
-    private String fechaNacimiento; // Simplificado como String por ahora
-    private String sexo;
-    private String datosContacto;
+
+   
+public abstract class cPersona {
+    protected String dni;
+    protected String nombres;
+    protected String apellidos;
+    protected String fechaNacimiento; 
+    protected String sexo;
+    protected String datosContacto;
 
     // Constructor
-    public Persona(String dni, String nombres, String apellidos, String fechaNacimiento, String sexo, String datosContacto) {
+    public cPersona(String dni, String nombres, String apellidos, String fechaNacimiento, String sexo, String datosContacto) {
         this.dni = dni;
         this.nombres = nombres;
         this.apellidos = apellidos;
@@ -28,16 +28,63 @@ public abstract class Persona {
         this.datosContacto = datosContacto;
     }
 
-    // Métodos abstractos que deben ser implementados por las clases hijas
+    
     public abstract String getTipoPersona();
 
-    // Método concreto común a todas las personas
+   
     public String getNombreCompleto() {
         return nombres + " " + apellidos;
     }
 
-    // Getters y Setters (solo se muestran algunos por brevedad)
-    public String getDni() { return dni; }
-    // ... otros getters y setters
+    
+    public String getDni() { 
+        return dni; 
+    }
+
+    public String getNombres() {
+        return nombres;
+    }
+
+    public void setNombres(String nombres) {
+        this.nombres = nombres;
+    }
+
+    public String getApellidos() {
+        return apellidos;
+    }
+
+    public void setApellidos(String apellidos) {
+        this.apellidos = apellidos;
+    }
+
+    public String getFechaNacimiento() {
+        return fechaNacimiento;
+    }
+
+    public void setFechaNacimiento(String fechaNacimiento) {
+        this.fechaNacimiento = fechaNacimiento;
+    }
+
+    public String getSexo() {
+        return sexo;
+    }
+
+    public void setSexo(String sexo) {
+        this.sexo = sexo;
+    }
+
+    public String getDatosContacto() {
+        return datosContacto;
+    }
+
+    public void setDatosContacto(String datosContacto) {
+        this.datosContacto = datosContacto;
+    }
+    
+    
+    
+    
 }
-}
+
+
+

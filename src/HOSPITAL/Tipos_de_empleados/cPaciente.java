@@ -8,46 +8,45 @@ package HOSPITAL.Tipos_de_empleados;
  *
  * @author O26302
  */
-public class cPaciente {
-    protected String DNI;
-    protected String nombre, apellidos;
-    protected String fecha_nacimiento;
-    protected String sexo;
-    protected String datosContacto,contactoEmergencia;
+public class cPaciente extends cPersona{
 
-    public cPaciente(String nombre, String apellidos,String DNI, String fecha_nacimiento, String sexo, String datosContacto, String contactoEmergencia) {
-        this.nombre = nombre;
-        this.apellidos = apellidos;
-        this.DNI = DNI;
-        this.fecha_nacimiento = fecha_nacimiento;
-        this.sexo = sexo;
-        this.datosContacto = datosContacto;
+    private String contactoEmergencia;
+
+    
+    public cPaciente(String dni, String nombres, String apellidos, String fechaNacimiento, String sexo, String datosContacto, String contactoEmergencia) {
+        super(dni, nombres, apellidos, fechaNacimiento, sexo, datosContacto);
         this.contactoEmergencia = contactoEmergencia;
     }
 
-    public cPaciente(String nom, String ape, String dni, String fecha,String sexo) {
-        this.nombre = nom;
-        this.apellidos = ape;
-        this.DNI = dni;
-        this.fecha_nacimiento = fecha;
-        this.sexo = sexo;
-        
+   
+    @Override
+    public String getTipoPersona() {
+        return "Paciente";
     }
 
-    public String getDNI() {
-        return DNI;
+   
+    public String getContactoEmergencia() {
+        return contactoEmergencia;
     }
 
-    public void setDNI(String DNI) {
-        this.DNI = DNI;
+    public void setContactoEmergencia(String contactoEmergencia) {
+        this.contactoEmergencia = contactoEmergencia;
     }
 
-    public String getNombre() {
-        return nombre;
+    public String getDni() {
+        return dni;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setDni(String dni) {
+        this.dni = dni;
+    }
+
+    public String getNombres() {
+        return nombres;
+    }
+
+    public void setNombres(String nombres) {
+        this.nombres = nombres;
     }
 
     public String getApellidos() {
@@ -58,12 +57,12 @@ public class cPaciente {
         this.apellidos = apellidos;
     }
 
-    public String getFecha_nacimiento() {
-        return fecha_nacimiento;
+    public String getFechaNacimiento() {
+        return fechaNacimiento;
     }
 
-    public void setFecha_nacimiento(String fecha_nacimiento) {
-        this.fecha_nacimiento = fecha_nacimiento;
+    public void setFechaNacimiento(String fechaNacimiento) {
+        this.fechaNacimiento = fechaNacimiento;
     }
 
     public String getSexo() {
@@ -81,17 +80,10 @@ public class cPaciente {
     public void setDatosContacto(String datosContacto) {
         this.datosContacto = datosContacto;
     }
-
-    public String getContactoEmergencia() {
-        return contactoEmergencia;
-    }
-
-    public void setContactoEmergencia(String contactoEmergencia) {
-        this.contactoEmergencia = contactoEmergencia;
-    }
     
-    public String verInfo(){
-        return "";
-    }
+    
     
 }
+
+    
+

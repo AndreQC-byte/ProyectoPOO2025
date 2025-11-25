@@ -10,10 +10,25 @@ package HOSPITAL.Tipos_de_empleados;
  */
 public class cMedico extends cEmpleado{
 
-    public cMedico(String login, String password, String DNI, String nombre, String apellidos, String datosContacto) {
-        super(login, password, DNI, nombre, apellidos, datosContacto);
+    private  String especialidad;
+
+ 
+    public cMedico(String dni, String nombres, String apellidos, String datosContacto, String login, String password, String especialidad) {
+        super(dni, nombres, apellidos, datosContacto, "Medico", login, password);
+        this.especialidad = especialidad;
     }
     
+    @Override
+    public String getTipoPersona() {
+        return "Medico - " + especialidad;
+    }
+
     
+    public String getEspecialidad() { 
+        return especialidad;
+    }
     
 }
+    
+    
+

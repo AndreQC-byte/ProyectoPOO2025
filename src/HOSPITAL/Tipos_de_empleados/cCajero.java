@@ -10,9 +10,12 @@ package HOSPITAL.Tipos_de_empleados;
  */
 public class cCajero extends cEmpleado {
 
-    public cCajero(String login, String password, String DNI, String nombre, String apellidos, String datosContacto) {
-        super(login, password, DNI, nombre, apellidos, datosContacto);
+    public cCajero(String dni, String nombres, String apellidos, String datosContacto, String rol, String login, String password) {
+        super(dni, nombres, apellidos, datosContacto, rol, login, password);
     }
+
   
+
+ 
     
 }

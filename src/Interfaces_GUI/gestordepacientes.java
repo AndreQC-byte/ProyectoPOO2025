@@ -361,22 +361,22 @@ public class gestordepacientes extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jTable1MouseClicked
     private void cargarTabla(){
-        /*int filas= this.jTable1.getRowCount();
+        int filas= this.jTable1.getRowCount();
         for(int i=0;i<filas;i++){
             modelo.removeRow(0);
         }
         cPaciente[]arreglo=gestor.getLista();
         String[] datos=new String[7];
         for(int i=0; i<gestor.getCont();i++){
-           datos[0]=arreglo[i].getNombre();
+           datos[0]=arreglo[i].getNombres();
            datos[1]=arreglo[i].getApellidos();
-           datos[2]=arreglo[i].getDNI();
-           datos[3]=arreglo[i].getFecha_nacimiento();
+           datos[2]=arreglo[i].getDni();
+           datos[3]=arreglo[i].getFechaNacimiento();
            datos[4]=arreglo[i].getSexo();
            datos[5]=arreglo[i].getDatosContacto();
            datos[6]=arreglo[i].getContactoEmergencia();
            modelo.addRow(datos);
-        }*/
+        }
          
     }
     /**

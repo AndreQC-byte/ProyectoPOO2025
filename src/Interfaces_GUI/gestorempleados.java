@@ -244,29 +244,29 @@ public class gestorempleados extends javax.swing.JFrame {
         String nom = this.jTextField1.getText();
         String ape = this.jTextField2.getText();
         String dni = this.jTextField3.getText();
-       /* 
+       
         if(this.jRadioButton1.isSelected())
         {
-            cMedico ref = new cMedico("","",dni,nom,ape,"");
+            cMedico ref = new cMedico("","","","","","","");
             refGI.AgregarEmpleado(ref);
         }
         else if(this.jRadioButton2.isSelected())
         {
-            cEnfermeros ref = new cEnfermeros("","",dni,nom,ape,"");
+            cEnfermeros ref = new cEnfermeros("","","","","","","");
             refGI.AgregarEmpleado(ref);
         }
         else if(this.jRadioButton3.isSelected())
         {
-            cCajero ref = new cCajero("","",dni,nom,ape,"");
+            cCajero ref = new cCajero("","","","","","","");
             refGI.AgregarEmpleado(ref);
         }
         else
         {
-            cRecepcionista ref = new cRecepcionista("","",dni,nom,ape,"");
+            cRecepcionista ref = new cRecepcionista("","","","","","","");
             refGI.AgregarEmpleado(ref);
         }        
         CargarTabla();
-        */
+        
         
     }//GEN-LAST:event_jButton1ActionPerformed
 

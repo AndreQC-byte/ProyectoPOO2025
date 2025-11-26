@@ -244,7 +244,7 @@ public class gestorempleados extends javax.swing.JFrame {
         String nom = this.jTextField1.getText();
         String ape = this.jTextField2.getText();
         String dni = this.jTextField3.getText();
-        
+       /* 
         if(this.jRadioButton1.isSelected())
         {
             cMedico ref = new cMedico("","",dni,nom,ape,"");
@@ -266,7 +266,7 @@ public class gestorempleados extends javax.swing.JFrame {
             refGI.AgregarEmpleado(ref);
         }        
         CargarTabla();
-        
+        */
         
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -298,7 +298,7 @@ public class gestorempleados extends javax.swing.JFrame {
         String[] datos = new String[4];
         for(int i=0;i<refGI.getNroEmpleados();i++)
         {
-            datos[0] = String.valueOf(arreglo[i].getNombre());
+           // datos[0] = String.valueOf(arreglo[i].getNombre());
             datos[1] = arreglo[i].getApellidos();
             datos[2] = arreglo[i].getDNI();
             

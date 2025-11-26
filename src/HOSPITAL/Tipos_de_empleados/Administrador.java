@@ -8,7 +8,7 @@ package HOSPITAL.Tipos_de_empleados;
  *
  * @author ASUS
  */
-public abstract class Administrador extends cEmpleado {
+public class Administrador extends cEmpleado {
 
     public Administrador(String dni, String nombres, String apellidos, String datosContacto, String rol, String login, String password) {
         super(dni, nombres, apellidos, datosContacto, rol, login, password);

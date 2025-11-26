@@ -4,7 +4,7 @@
  */
 package Interfaces_GUI;
 
-import Controladores.Gestionpacientes;
+import Controladores.GestorPacientes;
 import HOSPITAL.Tipos_de_empleados.cPaciente;
 import java.util.logging.Level;
 import javax.swing.JOptionPane;
@@ -18,7 +18,7 @@ import javax.swing.table.DefaultTableModel;
 public class gestordepacientes extends javax.swing.JFrame {
     
     private DefaultTableModel modelo;
-    private Gestionpacientes gestor;
+    private GestorPacientes gestor;
     
     public gestordepacientes() {
         initComponents();
@@ -31,7 +31,7 @@ public class gestordepacientes extends javax.swing.JFrame {
         modelo.addColumn("Sexo");
         this.jTable1.setModel(modelo);
         
-        gestor=new Gestionpacientes();
+        gestor=new GestorPacientes();
     }
 
     /**
@@ -298,9 +298,9 @@ public class gestordepacientes extends javax.swing.JFrame {
          String sexo = jRadioButton2.isSelected() ? "Masculino" : "Femenino";
          String fecha=jTextField4.getText();
 
-         cPaciente nuevo = new cPaciente(nom, ape, dni,fecha, sexo);
+         //cPaciente nuevo = new cPaciente(nom, ape, dni,fecha, sexo);
 
-         gestor.modificar(dni,nuevo);
+         //gestor.modificar(dni,nuevo);
          this.jTextField3.setText("");
          this.jTextField1.setText("");
          this.jTextField2.setText("");
@@ -361,7 +361,7 @@ public class gestordepacientes extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jTable1MouseClicked
     private void cargarTabla(){
-        int filas= this.jTable1.getRowCount();
+        /*int filas= this.jTable1.getRowCount();
         for(int i=0;i<filas;i++){
             modelo.removeRow(0);
         }
@@ -376,7 +376,7 @@ public class gestordepacientes extends javax.swing.JFrame {
            datos[5]=arreglo[i].getDatosContacto();
            datos[6]=arreglo[i].getContactoEmergencia();
            modelo.addRow(datos);
-        }
+        }*/
          
     }
     /**

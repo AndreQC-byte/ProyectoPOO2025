@@ -51,10 +51,18 @@ public class GestorEmpleados {
                
             }
             
-        }
-        
-        
+        }               
     }
+   
+   public cEmpleado getEmpleado(String dni)
+   {
+       return this.listaEmpleados[1];
+   }
+   
+   public boolean ValidarUsuario(String login,String password)
+   {
+       return true;
+   }
             
             
             

@@ -41,8 +41,6 @@ public class GestorPacientes {
             }
             
         }
-        
-        
     }
     
     public void eliminar_paciente(String DNI){

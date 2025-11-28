@@ -15,12 +15,12 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author ASUS
  */
-public class gestordepacientes extends javax.swing.JFrame {
+public class gestorpacientes extends javax.swing.JFrame {
     
     private DefaultTableModel modelo;
     private GestorPacientes gestor;
     
-    public gestordepacientes() {
+    public gestorpacientes() {
         initComponents();
         
         modelo=new DefaultTableModel();
@@ -402,7 +402,7 @@ public class gestordepacientes extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new gestordepacientes().setVisible(true));
+        java.awt.EventQueue.invokeLater(() -> new gestorpacientes().setVisible(true));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

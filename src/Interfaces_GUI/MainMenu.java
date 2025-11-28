@@ -25,6 +25,7 @@ public class MainMenu extends javax.swing.JFrame {
                 this.miConsultas.setVisible(true);
                 this.miPacientes.setVisible(false);
                 break;
+            case "Recepcionista":
                 
         }
     }

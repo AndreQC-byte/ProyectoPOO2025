@@ -9,5 +9,5 @@ package Controladores;
  * @author wedee
  */
 public class GestorCitasMedicas {
-    
+     
 }

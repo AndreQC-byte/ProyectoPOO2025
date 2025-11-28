@@ -4,6 +4,7 @@
  */
 package Interfaces_GUI;
 
+import Controladores.GestorConsultorios;
 import Controladores.GestorEmpleados;
 import Controladores.GestorPacientes;
 import HOSPITAL.Tipos_de_empleados.cEmpleado;
@@ -15,6 +16,7 @@ import HOSPITAL.Tipos_de_empleados.cEmpleado;
 public class DataAdmin {
     static GestorEmpleados empleados;
     static GestorPacientes pacientes;
+    static GestorConsultorios consultorios;
     static cEmpleado activeUser;
     
     public void admin(){
@@ -26,5 +28,6 @@ public class DataAdmin {
     {
         empleados = new GestorEmpleados();
         pacientes = new GestorPacientes();
+        consultorios = new GestorConsultorios();
     }
 }

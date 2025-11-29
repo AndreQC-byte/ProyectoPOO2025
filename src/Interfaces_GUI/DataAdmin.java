@@ -18,7 +18,7 @@ public class DataAdmin {
     static GestorConsultorios consultorios;
     static cEmpleado activeUser;
     static GestorFacturas facturas;
-
+    static GestorCitasMedicas citas_medicas;
     
     public void admin(){
        
@@ -31,6 +31,7 @@ public class DataAdmin {
         pacientes = new GestorPacientes();
         consultorios = new GestorConsultorios();
         facturas = new GestorFacturas();
+        citas_medicas = new GestorCitasMedicas();
         
     }
 }

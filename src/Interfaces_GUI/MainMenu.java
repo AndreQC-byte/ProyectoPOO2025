@@ -58,6 +58,11 @@ public class MainMenu extends javax.swing.JFrame {
         jMenu1.setText("File");
 
         miPacientes.setText("Pacientes");
+        miPacientes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                miPacientesActionPerformed(evt);
+            }
+        });
         jMenu1.add(miPacientes);
 
         miConsultas.setText("Consultas");
@@ -93,6 +98,12 @@ public class MainMenu extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void miPacientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miPacientesActionPerformed
+        // TODO add your handling code here:
+        gestorpacientes x = new gestorpacientes();
+        x.setVisible(true);
+    }//GEN-LAST:event_miPacientesActionPerformed
 
     /**
      * @param args the command line arguments

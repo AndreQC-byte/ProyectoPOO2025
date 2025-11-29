@@ -55,7 +55,15 @@ public class GestorEmpleados {
    
    public cEmpleado getEmpleado(String dni)
    {
-       return this.listaEmpleados[0];
+       
+       for (int i = 0; i < nroEmpleados; i++) {
+           if(listaEmpleados[i].getDNI().equalsIgnoreCase(dni))
+           {
+               return this.listaEmpleados[i];
+           }
+       }
+       return null;
+       
    }
    
    public boolean ValidarUsuario(String login,String password){

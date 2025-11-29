@@ -8,12 +8,12 @@ package Interfaces_GUI;
  *
  * @author O26303
  */
-public class gestionconsulta extends javax.swing.JFrame {
+public class Panels_Consultas extends javax.swing.JFrame {
 
     /**
      * Creates new form datosconsultor
      */
-    public gestionconsulta() {
+    public Panels_Consultas() {
         initComponents();
     }
 
@@ -208,21 +208,23 @@ public class gestionconsulta extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(gestionconsulta.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Panels_Consultas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(gestionconsulta.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Panels_Consultas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(gestionconsulta.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Panels_Consultas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(gestionconsulta.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Panels_Consultas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new gestionconsulta().setVisible(true);
+                new Panels_Consultas().setVisible(true);
             }
         });
     }

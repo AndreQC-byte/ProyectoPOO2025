@@ -202,7 +202,7 @@ public class MainMenu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void miPacientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miPacientesActionPerformed
-        gestorpacientes x= new gestorpacientes();
+        Panels_Pacientes x= new Panels_Pacientes();
         x.setVisible(true);
     }//GEN-LAST:event_miPacientesActionPerformed
 

@@ -144,7 +144,7 @@
           <Color blue="ff" green="33" red="33" type="rgb"/>
         </Property>
         <Property name="horizontalAlignment" type="int" value="0"/>
-        <Property name="text" type="java.lang.String" value="KRONOS SALUD"/>
+        <Property name="text" type="java.lang.String" value="QGVC SALUD"/>
       </Properties>
     </Component>
   </SubComponents>

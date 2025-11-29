@@ -4,44 +4,34 @@
  */
 package CREACIONES;
 
-/**
- *
- * @author wedee
- */
 public class cConsultorios {
+
     private String codigo;
+    private String especialidad;
     private String estado;
-    private String horario;
+    private String dia;
+    private String ambiente;
 
-    public cConsultorios(String codigo, String estado, String horario) {
+    public cConsultorios(String codigo, String especialidad, String estado, String dia, String ambiente) {
         this.codigo = codigo;
+        this.especialidad = especialidad;
         this.estado = estado;
-        this.horario = horario;
+        this.dia = dia;
+        this.ambiente = ambiente;
     }
 
-    public String getCodigo() {
-        return codigo;
-    }
+    public String getCodigo() { return codigo; }
+    public void setCodigo(String codigo) { this.codigo = codigo; }
 
-    public void setCodigo(String codigo) {
-        this.codigo = codigo;
-    }
+    public String getEspecialidad() { return especialidad; }
+    public void setEspecialidad(String especialidad) { this.especialidad = especialidad; }
 
-    public String getEstado() {
-        return estado;
-    }
+    public String getEstado() { return estado; }
+    public void setEstado(String estado) { this.estado = estado; }
 
-    public void setEstado(String estado) {
-        this.estado = estado;
-    }
+    public String getDia() { return dia; }
+    public void setDia(String dia) { this.dia = dia; }
 
-    public String getHorario() {
-        return horario;
-    }
-
-    public void setHorario(String horario) {
-        this.horario = horario;
-    }
-    
-    
+    public String getAmbiente() { return ambiente; }
+    public void setAmbiente(String ambiente) { this.ambiente = ambiente; }
 }

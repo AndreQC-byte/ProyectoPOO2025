@@ -18,7 +18,7 @@ public class DataAdmin {
     static GestorConsultorios consultorios;
     static cEmpleado activeUser;
     static GestorFacturas facturas;
-   
+
     
     public void admin(){
        

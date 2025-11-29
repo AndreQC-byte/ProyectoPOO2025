@@ -105,7 +105,6 @@ public class MainMenu extends javax.swing.JFrame {
         micheckin = new javax.swing.JMenuItem();
         miFacturacion = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
-        jMenuItem4 = new javax.swing.JMenuItem();
 
         jMenu3.setText("File");
         jMenuBar2.add(jMenu3);
@@ -145,24 +144,49 @@ public class MainMenu extends javax.swing.JFrame {
         jMenu1.add(miConsultas);
 
         miEmpleados.setText("Empleados");
+        miEmpleados.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                miEmpleadosActionPerformed(evt);
+            }
+        });
         jMenu1.add(miEmpleados);
 
         miAgendas.setText("AgendaCitas");
+        miAgendas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                miAgendasActionPerformed(evt);
+            }
+        });
         jMenu1.add(miAgendas);
 
         miHistoriaclinica.setText("historia clinica");
+        miHistoriaclinica.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                miHistoriaclinicaActionPerformed(evt);
+            }
+        });
         jMenu1.add(miHistoriaclinica);
 
         miReportes.setText("Reportes");
+        miReportes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                miReportesActionPerformed(evt);
+            }
+        });
         jMenu1.add(miReportes);
 
         miAtencionClinica.setText("Atencionclinica");
+        miAtencionClinica.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                miAtencionClinicaActionPerformed(evt);
+            }
+        });
         jMenu1.add(miAtencionClinica);
 
-        micheckin.setText("jMenuItem5");
+        micheckin.setText("CheckIN");
         jMenu1.add(micheckin);
 
-        miFacturacion.setText("jMenuItem2");
+        miFacturacion.setText("Facturacion");
         miFacturacion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 miFacturacionActionPerformed(evt);
@@ -173,10 +197,6 @@ public class MainMenu extends javax.swing.JFrame {
         jMenuBar1.add(jMenu1);
 
         jMenu2.setText("Permisos");
-
-        jMenuItem4.setText("HistoriaClinica");
-        jMenu2.add(jMenuItem4);
-
         jMenuBar1.add(jMenu2);
 
         setJMenuBar(jMenuBar1);
@@ -207,13 +227,39 @@ public class MainMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_miPacientesActionPerformed
 
     private void miConsultasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miConsultasActionPerformed
-        
+        gestionconsulta x= new gestionconsulta();
+        x.setVisible(true);
         
     }//GEN-LAST:event_miConsultasActionPerformed
 
     private void miFacturacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miFacturacionActionPerformed
-        // TODO add your handling code here:
+      
     }//GEN-LAST:event_miFacturacionActionPerformed
+
+    private void miEmpleadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miEmpleadosActionPerformed
+        gestorempleados x = new gestorempleados();
+        x.setVisible(true);
+    }//GEN-LAST:event_miEmpleadosActionPerformed
+
+    private void miHistoriaclinicaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miHistoriaclinicaActionPerformed
+        HISTORIACLINICADOC x = new HISTORIACLINICADOC();
+        x.setVisible(true);
+        
+    }//GEN-LAST:event_miHistoriaclinicaActionPerformed
+
+    private void miAgendasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miAgendasActionPerformed
+        agendaCitas x = new agendaCitas();
+        x.setVisible(true);
+    }//GEN-LAST:event_miAgendasActionPerformed
+
+    private void miReportesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miReportesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_miReportesActionPerformed
+
+    private void miAtencionClinicaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miAtencionClinicaActionPerformed
+        atecionclinica x = new atecionclinica();
+        x.setVisible(true);
+    }//GEN-LAST:event_miAtencionClinicaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -261,7 +307,6 @@ public class MainMenu extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar2;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem miAgendas;
     private javax.swing.JMenuItem miAtencionClinica;
     private javax.swing.JMenuItem miConsultas;

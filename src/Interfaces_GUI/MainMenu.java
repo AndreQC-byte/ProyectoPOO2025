@@ -227,7 +227,7 @@ public class MainMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_miPacientesActionPerformed
 
     private void miConsultasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miConsultasActionPerformed
-        gestionconsulta x= new gestionconsulta();
+        Panels_Consultas x= new Panels_Consultas();
         x.setVisible(true);
         
     }//GEN-LAST:event_miConsultasActionPerformed
@@ -237,18 +237,18 @@ public class MainMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_miFacturacionActionPerformed
 
     private void miEmpleadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miEmpleadosActionPerformed
-        gestorempleados x = new gestorempleados();
+        Panels_Empleados x = new Panels_Empleados();
         x.setVisible(true);
     }//GEN-LAST:event_miEmpleadosActionPerformed
 
     private void miHistoriaclinicaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miHistoriaclinicaActionPerformed
-        HISTORIACLINICADOC x = new HISTORIACLINICADOC();
+        HistoriaClínica x = new HistoriaClínica();
         x.setVisible(true);
         
     }//GEN-LAST:event_miHistoriaclinicaActionPerformed
 
     private void miAgendasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miAgendasActionPerformed
-        agendaCitas x = new agendaCitas();
+        AgendaciónCitas x = new AgendaciónCitas();
         x.setVisible(true);
     }//GEN-LAST:event_miAgendasActionPerformed
 
@@ -257,7 +257,7 @@ public class MainMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_miReportesActionPerformed
 
     private void miAtencionClinicaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miAtencionClinicaActionPerformed
-        atecionclinica x = new atecionclinica();
+        Panels_AtencionClínica x = new Panels_AtencionClínica();
         x.setVisible(true);
     }//GEN-LAST:event_miAtencionClinicaActionPerformed
 

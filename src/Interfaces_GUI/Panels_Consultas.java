@@ -4,18 +4,59 @@
  */
 package Interfaces_GUI;
 
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
+
+
 /**
  *
  * @author O26303
  */
 public class Panels_Consultas extends javax.swing.JFrame {
+    private DefaultTableModel modelo;
+    
 
     /**
      * Creates new form datosconsultor
      */
     public Panels_Consultas() {
         initComponents();
+        modelo = new DefaultTableModel();
+        modelo.addColumn("Código");
+        modelo.addColumn("Especialidad");
+        modelo.addColumn("Estado");
+        modelo.addColumn("Día");
+        modelo.addColumn("Ambiente");
+        jTable1.setModel(modelo);
+        llenarTabla();
+        
+        
+        
     }
+    private void limpiarCampos() {
+        jTextField1.setText(""); // Código
+        jComboBox2.setSelectedIndex(0); // Especialidad
+        jComboBox1.setSelectedIndex(0); // Estado
+        jComboBox3.setSelectedIndex(0); // Día
+        jTextField2.setText(""); // Ambiente
+    }
+
+    // Método para llenar la tabla (datos de ejemplo)
+    private void llenarTabla() {
+        modelo.setRowCount(0); // Limpiar tabla
+
+        Object[][] registros = {
+            {"C001", "Cardiología", "Disponible", "Lunes 9-10", "A1"},
+            {"C002", "Pediatría", "Ocupado", "Martes 9:30-10:30", "A2"},
+            {"C003", "Medicina General", "Mantenimiento", "Miércoles 10-11", "A3"}
+        };
+
+        for (Object[] fila : registros) {
+            modelo.addRow(fila);
+        }
+    }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -52,6 +93,12 @@ public class Panels_Consultas extends javax.swing.JFrame {
 
         jLabel4.setText("Estado");
 
+        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField1ActionPerformed(evt);
+            }
+        });
+
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Disponible", "Ocupado", "Mantenimiento" }));
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -60,10 +107,25 @@ public class Panels_Consultas extends javax.swing.JFrame {
         });
 
         jButton1.setText("Registrar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("Eliminar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jButton3.setText("modificar");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
@@ -190,6 +252,49 @@ public class Panels_Consultas extends javax.swing.JFrame {
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboBox1ActionPerformed
+
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField1ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        Object[] fila = {
+            jTextField1.getText(),
+            jComboBox2.getSelectedItem(),
+            jComboBox1.getSelectedItem(),
+            jComboBox3.getSelectedItem(),
+            jTextField2.getText()
+        };
+        modelo.addRow(fila);
+        limpiarCampos();
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        int filaSeleccionada = jTable1.getSelectedRow();
+        if (filaSeleccionada >= 0) {
+            modelo.removeRow(filaSeleccionada);
+        } else {
+            JOptionPane.showMessageDialog(this, "Seleccione una fila para eliminar.");
+        }
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+        int filaSeleccionada = jTable1.getSelectedRow();
+        if (filaSeleccionada >= 0) {
+            modelo.setValueAt(jTextField1.getText(), filaSeleccionada, 0);
+            modelo.setValueAt(jComboBox2.getSelectedItem(), filaSeleccionada, 1);
+            modelo.setValueAt(jComboBox1.getSelectedItem(), filaSeleccionada, 2);
+            modelo.setValueAt(jComboBox3.getSelectedItem(), filaSeleccionada, 3);
+            modelo.setValueAt(jTextField2.getText(), filaSeleccionada, 4);
+            limpiarCampos();
+        } else {
+            JOptionPane.showMessageDialog(this, "Seleccione una fila para modificar.");
+        }
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments

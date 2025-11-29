@@ -59,15 +59,19 @@ public class GestorEmpleados {
    }
    
    public boolean ValidarUsuario(String login,String password){
+       boolean validar = false;
        for (int i = 0; i < this.listaEmpleados.length; i++) {
-           if(this.listaEmpleados[i].getLogin()== login && this.listaEmpleados[i].getPassword()== password ){
-               return true;
+           if(this.listaEmpleados[i].getLogin().equalsIgnoreCase(login) && this.listaEmpleados[i].getPassword().equalsIgnoreCase(password)){
+               validar = true;
+               
+               break;
            }
            else{
-               return false;
+               return validar;
+
            }
        }
-       return false;
+       return validar;
    }
              
     public cEmpleado[] getListaEmpleados() {

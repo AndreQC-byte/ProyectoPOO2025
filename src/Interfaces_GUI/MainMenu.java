@@ -19,23 +19,57 @@ public class MainMenu extends javax.swing.JFrame {
         initComponents();
         switch (DataAdmin.activeUser.getRol()){
             case "Admin":
+                
                 this.miConsultas.setVisible(true);
                 this.miEmpleados.setVisible(true);
                 this.miHistoriaclinica.setVisible(true);
                 this.miReportes.setVisible(true);
+                this.miAtencionClinica.setVisible(false);
+                this.miFacturacion.setVisible(false);
+                this.micheckin.setVisible(false);
+                this.miEmpleados.setVisible(false);
+                this.miPacientes.setVisible(false);
+                this.miAgendas.setVisible(false);
                 break;
+                
             case "Medico":
+                
                 this.miAtencionClinica.setVisible(true);
                 this.miHistoriaclinica.setVisible(true);
+                this.miConsultas.setVisible(false);
+                this.miEmpleados.setVisible(false);
+                this.miReportes.setVisible(false);
+                this.miFacturacion.setVisible(false);
+                this.micheckin.setVisible(false);
+                this.miPacientes.setVisible(false);
+                this.miAgendas.setVisible(false);
                 break;
+                
             case "Recepcionista":
+                
                 this.miPacientes.setVisible(true);
                 this.miAgendas.setVisible(true);
                 this.micheckin.setVisible(true);
                 this.miFacturacion.setVisible(true);
+                this.miAtencionClinica.setVisible(false);
+                this.miHistoriaclinica.setVisible(false);
+                this.miConsultas.setVisible(false);
+                this.miEmpleados.setVisible(false);
+                this.miReportes.setVisible(false);
+                
                 break;
+                
             case "Cajero":
-                this.miFacturacion.setVisible(true);
+                this.miAtencionClinica.setVisible(false);
+                this.miHistoriaclinica.setVisible(false);
+                this.miConsultas.setVisible(false);
+                this.miEmpleados.setVisible(false);
+                this.miReportes.setVisible(false);
+                this.miFacturacion.setVisible(false);
+                this.micheckin.setVisible(false);
+                this.miPacientes.setVisible(false);
+                this.miAgendas.setVisible(false);
+
                 break;
                     
                 

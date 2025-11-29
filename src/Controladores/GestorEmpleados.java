@@ -28,7 +28,7 @@ public class GestorEmpleados {
     {
         for(int i=0;i<nroEmpleados;i++)
         {
-            if(listaEmpleados[i].getNombres().equalsIgnoreCase(DNI))
+            if(listaEmpleados[i].getDNI().equalsIgnoreCase(DNI))
             {
                 for(int j=i;j<nroEmpleados-1;j++)
                 {
@@ -46,7 +46,6 @@ public class GestorEmpleados {
                 this.listaEmpleados[i].setNombres(nueva_data.getNombres());
                 this.listaEmpleados[i].setApellidos(nueva_data.getApellidos());
                 this.listaEmpleados[i].setDni(nueva_data.getDNI());
-         
                 this.listaEmpleados[i].setDatosContacto(nueva_data.getDatosContacto());
                
             }
@@ -59,16 +58,18 @@ public class GestorEmpleados {
        return this.listaEmpleados[0];
    }
    
-   public boolean ValidarUsuario(String login,String password)
-   {
-       return true;
+   public boolean ValidarUsuario(String login,String password){
+       for (int i = 0; i < this.listaEmpleados.length; i++) {
+           if(this.listaEmpleados[i].getLogin()== login && this.listaEmpleados[i].getPassword()== password ){
+               return true;
+           }
+           else{
+               return false;
+           }
+       }
+       return false;
    }
-            
-            
-            
-            
-            
-
+             
     public cEmpleado[] getListaEmpleados() {
         return listaEmpleados;
     }

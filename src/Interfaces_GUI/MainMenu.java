@@ -20,14 +20,26 @@ public class MainMenu extends javax.swing.JFrame {
         switch (DataAdmin.activeUser.getRol()){
             case "Admin":
                 this.miConsultas.setVisible(true);
-                this.miPacientes.setVisible(true);
-                
+                this.miEmpleados.setVisible(true);
+                this.miHistoriaclinica.setVisible(true);
+                this.miReportes.setVisible(true);
                 break;
             case "Medico":
-                this.miConsultas.setVisible(true);
-                this.miPacientes.setVisible(false);
+                this.miAtencionClinica.setVisible(true);
+                this.miHistoriaclinica.setVisible(true);
                 break;
             case "Recepcionista":
+                this.miPacientes.setVisible(true);
+                this.miAgendas.setVisible(true);
+                this.micheckin.setVisible(true);
+                this.miFacturacion.setVisible(true);
+                break;
+            case "Cajero":
+                this.miFacturacion.setVisible(true);
+                break;
+                    
+                
+                
                 
         }
     }
@@ -45,13 +57,19 @@ public class MainMenu extends javax.swing.JFrame {
         jMenu3 = new javax.swing.JMenu();
         jMenu4 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuItem3 = new javax.swing.JMenuItem();
         jLabel1 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         miPacientes = new javax.swing.JMenuItem();
         miConsultas = new javax.swing.JMenuItem();
-        jMenuItem3 = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
+        miEmpleados = new javax.swing.JMenuItem();
+        miAgendas = new javax.swing.JMenuItem();
+        miHistoriaclinica = new javax.swing.JMenuItem();
+        miReportes = new javax.swing.JMenuItem();
+        miAtencionClinica = new javax.swing.JMenuItem();
+        micheckin = new javax.swing.JMenuItem();
+        miFacturacion = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         jMenuItem4 = new javax.swing.JMenuItem();
 
@@ -62,6 +80,8 @@ public class MainMenu extends javax.swing.JFrame {
         jMenuBar2.add(jMenu4);
 
         jMenuItem1.setText("jMenuItem1");
+
+        jMenuItem3.setText("jMenuItem3");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -83,13 +103,38 @@ public class MainMenu extends javax.swing.JFrame {
 
         miConsultas.setText("Consultas");
         miConsultas.setToolTipText("");
+        miConsultas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                miConsultasActionPerformed(evt);
+            }
+        });
         jMenu1.add(miConsultas);
 
-        jMenuItem3.setText("Empleados");
-        jMenu1.add(jMenuItem3);
+        miEmpleados.setText("Empleados");
+        jMenu1.add(miEmpleados);
 
-        jMenuItem2.setText("AgendaCitas");
-        jMenu1.add(jMenuItem2);
+        miAgendas.setText("AgendaCitas");
+        jMenu1.add(miAgendas);
+
+        miHistoriaclinica.setText("historia clinica");
+        jMenu1.add(miHistoriaclinica);
+
+        miReportes.setText("Reportes");
+        jMenu1.add(miReportes);
+
+        miAtencionClinica.setText("Atencionclinica");
+        jMenu1.add(miAtencionClinica);
+
+        micheckin.setText("jMenuItem5");
+        jMenu1.add(micheckin);
+
+        miFacturacion.setText("jMenuItem2");
+        miFacturacion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                miFacturacionActionPerformed(evt);
+            }
+        });
+        jMenu1.add(miFacturacion);
 
         jMenuBar1.add(jMenu1);
 
@@ -126,6 +171,15 @@ public class MainMenu extends javax.swing.JFrame {
         gestorpacientes x= new gestorpacientes();
         x.setVisible(true);
     }//GEN-LAST:event_miPacientesActionPerformed
+
+    private void miConsultasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miConsultasActionPerformed
+        
+        
+    }//GEN-LAST:event_miConsultasActionPerformed
+
+    private void miFacturacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miFacturacionActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_miFacturacionActionPerformed
 
     /**
      * @param args the command line arguments
@@ -172,10 +226,16 @@ public class MainMenu extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuBar jMenuBar2;
     private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
+    private javax.swing.JMenuItem miAgendas;
+    private javax.swing.JMenuItem miAtencionClinica;
     private javax.swing.JMenuItem miConsultas;
+    private javax.swing.JMenuItem miEmpleados;
+    private javax.swing.JMenuItem miFacturacion;
+    private javax.swing.JMenuItem miHistoriaclinica;
     private javax.swing.JMenuItem miPacientes;
+    private javax.swing.JMenuItem miReportes;
+    private javax.swing.JMenuItem micheckin;
     // End of variables declaration//GEN-END:variables
 }

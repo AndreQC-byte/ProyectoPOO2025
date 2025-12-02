@@ -7,78 +7,60 @@ package Controladores;
 import HOSPITAL.Atenciones.cConsultorios.cCitasMedicas;
 import HOSPITAL.Tipos_de_empleados.cMedico;
 
-/**
- *
- * @author wedee
- */
 public class GestorCitasMedicas {
-    //GESTORCITAS
+
     private cCitasMedicas[] citas;
     private int cont;
-    //PARA EL GESTOR DE CITAS
+    private String medico;
+
     public GestorCitasMedicas() {
         this.citas = new cCitasMedicas[100];
-        this.cont=0;
+        this.cont = 0;
     }
 
-    
-    public void  crear(String especialidad, String consultorio, String fecha, cMedico medico, String Modalidad){
-         if(this.citas.length<=100){
-            this.citas[this.cont].especialidad= especialidad;
-            this.citas[this.cont].consultorio= consultorio;
-            this.citas[this.cont].fecha= fecha;
-            this.citas[this.cont].medico= medico;
-            this.citas[this.cont].modalidad= Modalidad;       
-            
+    // Crear nueva cita
+    public void crear(String especialidad, String consultorio, String fecha,String hora,String medico, String modalidad,String estado) {
+        if (cont < citas.length) {
+            cCitasMedicas nuevaCita = new cCitasMedicas(especialidad, fecha,hora, medico, consultorio, modalidad,estado);
+            citas[cont] = nuevaCita;
+            cont++;
+        } else {
+            System.out.println("No hay espacio para más citas");
         }
-        else{
-            System.out.println("No hay espacio");
-        }
-        this.cont++;
-    }
-    
-    public void modificar(int numero_cita,String especialidad, String consultorio, String fecha, cMedico medico, String Modalidad){
-        for (int i = 0; i < this.citas.length; i++) {
-            if(this.citas[i]==this.citas[numero_cita]){
-            this.citas[this.cont].especialidad= especialidad;
-            this.citas[this.cont].consultorio= consultorio;
-            this.citas[this.cont].fecha= fecha;
-            this.citas[this.cont].medico= medico;
-            this.citas[this.cont].modalidad= Modalidad;   
-            }
-        }
-        
-    }
-    
-    public void eliminar(int numero_cita){
-         
-        for(int i=0;i<cont;i++)
-        {
-            if(this.citas[i]== this.citas[numero_cita])
-            {
-                for(int j=i;j<cont-1;j++)
-                {
-                    this.citas[j]=this.citas[j+1];
-                }
-                this.citas[cont-1]=null;
-                cont--;
-            }
-        }
-    }
-    
-    
-    public boolean validarCita(){
-         for (int i = 0; i < this.citas.length; i++) {
-           if(this.citas[i]!=null){
-               return true;
-           }
-           else{
-               return false;
-           }
-       }
-       return false;
     }
 
+    // Modificar cita existente
+    public void modificar(int numero_cita, String especialidad, String consultorio, String fecha, String medico, String modalidad) {
+        if (numero_cita >= 0 && numero_cita < cont) {
+            citas[numero_cita].setEspecialidad(especialidad);
+            citas[numero_cita].setConsultorio(consultorio);
+            citas[numero_cita].setFecha(fecha);
+            citas[numero_cita].setMedico(medico);
+            citas[numero_cita].setModalidad(modalidad);
+        } else {
+            System.out.println("Número de cita inválido");
+        }
+    }
+
+    // Eliminar cita
+    public void eliminar(int numero_cita) {
+        if (numero_cita >= 0 && numero_cita < cont) {
+            for (int i = numero_cita; i < cont - 1; i++) {
+                citas[i] = citas[i + 1];
+            }
+            citas[cont - 1] = null;
+            cont--;
+        } else {
+            System.out.println("Número de cita inválido");
+        }
+    }
+
+    // Validar si hay alguna cita registrada
+    public boolean validarCita() {
+        return cont > 0;
+    }
+
+    // Getters y setters
     public cCitasMedicas[] getCitas() {
         return citas;
     }
@@ -94,10 +76,10 @@ public class GestorCitasMedicas {
     public void setCont(int cont) {
         this.cont = cont;
     }
-    
-    
-    
-    
-    
+
+    public void eliminarCita(int fila) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
     
 }

@@ -14,11 +14,11 @@ public class cCitaMedica {
     
     public String especialidad;
     public String fecha;
-    public cMedico medico;
+    public String medico;
     public String consultorio;
     public String modalidad;
 
-    public cCitaMedica(String especialidad, String fecha, cMedico medico, String consultorio, String modalidad) {
+    public cCitaMedica(String especialidad, String fecha, String medico, String consultorio, String modalidad) {
         this.especialidad = especialidad;
         this.fecha = fecha;
         this.medico = medico;
@@ -42,11 +42,11 @@ public class cCitaMedica {
         this.fecha = fecha;
     }
 
-    public cMedico getMedico() {
+    public String getMedico() {
         return medico;
     }
 
-    public void setMedico(cMedico medico) {
+    public void setMedico(String medico) {
         this.medico = medico;
     }
 

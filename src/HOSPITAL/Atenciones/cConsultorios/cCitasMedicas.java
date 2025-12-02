@@ -14,16 +14,40 @@ public class cCitasMedicas {
     
     public String especialidad;
     public String fecha;
-    public cMedico medico;
+    public String hora;
+    public String medico;
     public String consultorio;
     public String modalidad;
+    public String estado;
 
-    public cCitasMedicas(String especialidad, String fecha, cMedico medico, String consultorio, String modalidad) {
+    public cCitasMedicas(String especialidad, String fecha,String hora, String medico, String consultorio, String modalidad, String estado) {
         this.especialidad = especialidad;
         this.fecha = fecha;
+        this.hora=hora;
         this.medico = medico;
         this.consultorio = consultorio;
         this.modalidad = modalidad;
+        this.estado=estado;
+    }
+
+    public cCitasMedicas(String fecha, String hora, String medico, String consultorio, String modalidad, String estado) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    public String getHora() {
+        return hora;
+    }
+
+    public void setHora(String hora) {
+        this.hora = hora;
+    }
+
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
     }
 
     public String getEspecialidad() {
@@ -42,11 +66,11 @@ public class cCitasMedicas {
         this.fecha = fecha;
     }
 
-    public cMedico getMedico() {
+    public String getMedico() {
         return medico;
     }
 
-    public void setMedico(cMedico medico) {
+    public void setMedico(String medico) {
         this.medico = medico;
     }
 
@@ -65,6 +89,11 @@ public class cCitasMedicas {
     public void setModalidad(String modalidad) {
         this.modalidad = modalidad;
     }
+
+    public void getMedico(String text) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+    
     
     
     

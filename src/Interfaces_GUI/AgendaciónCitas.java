@@ -4,18 +4,122 @@
  */
 package Interfaces_GUI;
 
-/**
- *
- * @author O26303
- */
+import HOSPITAL.Atenciones.cConsultorios.cCitasMedicas;
+import HOSPITAL.Tipos_de_empleados.cMedico;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import Controladores.GestorCitasMedicas;
+ 
 public class AgendaciónCitas extends javax.swing.JFrame {
+    private DefaultTableModel modelo;
+    private GestorCitasMedicas gestorCitas;
 
     /**
      * Creates new form datosEmpleados
      */
     public AgendaciónCitas() {
         initComponents();
+        modelo = new DefaultTableModel();
+        modelo.addColumn("Medico");
+        modelo.addColumn("Fecha");
+        modelo.addColumn("Hora");
+        modelo.addColumn("Consultorio");
+        modelo.addColumn("Modalidad");
+        modelo.addColumn("Estado");
+
+        jTable1.setModel(modelo);
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {"Presencial","Telemedica"}));
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {"Disponible", "Ocupado", "Mantenimiento"}));
+
+        // Llenar la tabla con datos de ejemplo
+        gestorCitas = new GestorCitasMedicas();
+         cCitasMedicas prueba1 = new cCitasMedicas(
+            "Cardiología",
+            "2025-12-02",
+            "09:00",
+            "Dr. López",
+            "C1",
+            "Presencial",
+            "Disponible"
+         );
+
+         cCitasMedicas prueba2 = new cCitasMedicas(
+            "Pediatría",
+            "2025-12-03",
+            "10:30",
+            "Dra. Pérez",
+            "C2",
+            "Telemedica",
+            "Ocupado"
+        );
+
+         cCitasMedicas prueba3 = new cCitasMedicas(
+            "Dermatología",
+            "2025-12-04",
+            "15:00",
+            "Dr. Ramírez",
+            "C3",
+            "Presencial",
+            "Disponible"
+        );
+        gestorCitas.crear(
+           prueba1.getEspecialidad(),
+           prueba1.getConsultorio(),
+           prueba1.getFecha(),
+           prueba1.getHora(),
+           prueba1.getMedico(),
+           prueba1.getModalidad(),
+           prueba1.getEstado()
+        );
+
+        gestorCitas.crear(
+          prueba2.getEspecialidad(),
+          prueba2.getConsultorio(),
+          prueba2.getFecha(),
+          prueba2.getHora(),
+          prueba2.getMedico(),
+          prueba2.getModalidad(),
+          prueba2.getEstado()
+        );
+
+       gestorCitas.crear(
+          prueba3.getEspecialidad(),
+          prueba3.getConsultorio(),
+          prueba3.getFecha(),
+          prueba3.getHora(),
+          prueba3.getMedico(),
+          prueba3.getModalidad(),
+          prueba3.getEstado()
+        );
+
+        cargarTabla();
+        
     }
+    private void limpiarCampos() {
+        jTextField1.setText(""); // Especialidad
+        jTextField2.setText(""); // Medico
+        jTextField3.setText(""); // Fecha
+        jTextField4.setText(""); // Consultorio
+        jComboBox1.setSelectedIndex(0); // Modalidad
+        jComboBox2.setSelectedIndex(0);
+    }
+    private void cargarTabla() {
+        modelo.setRowCount(0); // Limpiar tabla
+        cCitasMedicas[] arreglo = gestorCitas.getCitas(); // Tu arreglo de citas
+        for (int i = 0; i < gestorCitas.getCont(); i++) {
+            Object[] fila = new Object[6];
+            fila[0] = arreglo[i].getMedico();
+            fila[1] = arreglo[i].getFecha();
+            fila[2] = arreglo[i].getHora();
+            fila[3] = arreglo[i].getConsultorio();
+            fila[4] = arreglo[i].getModalidad();
+            fila[5] = arreglo[i].getEstado();
+            
+            modelo.addRow(fila);
+        }
+    }
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -128,12 +232,32 @@ public class AgendaciónCitas extends javax.swing.JFrame {
         jLabel10.setText("ESTADO");
 
         jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Disponible", "Ocupado", "Mantenimiento" }));
+        jComboBox2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox2ActionPerformed(evt);
+            }
+        });
 
         jButton4.setText("CREAR");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
         jButton5.setText("MODIFICAR");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
 
         jButton6.setText("ELIMINAR");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
 
         jButton7.setText("CONFIRMAR ");
         jButton7.addActionListener(new java.awt.event.ActionListener() {
@@ -153,6 +277,11 @@ public class AgendaciónCitas extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable1MouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(jTable1);
 
         jLabel11.setText("ESTADO DE CITA");
@@ -166,7 +295,7 @@ public class AgendaciónCitas extends javax.swing.JFrame {
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jSeparator1)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 170, Short.MAX_VALUE)
+                .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jLabel5)
                 .addGap(493, 493, 493))
             .addComponent(jSeparator2)
@@ -304,6 +433,75 @@ public class AgendaciónCitas extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton7ActionPerformed
 
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        String especialidad = jTextField1.getText();
+        String medico = jTextField4.getText();
+        String fecha = jTextField5.getText();
+        String hora = jTextField6.getText();
+        String consultorio = jTextField7.getText();
+        String modalidad = jComboBox1.getSelectedItem().toString();
+        String estado = jComboBox2.getSelectedItem().toString();
+
+        gestorCitas.crear(especialidad, consultorio, fecha, hora, medico, modalidad, estado);
+
+        cargarTabla();  
+        limpiarCampos();
+        
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        int fila = jTable1.getSelectedRow();
+        if (fila < 0) {
+            JOptionPane.showMessageDialog(this, "Seleccione una fila");
+            return;
+        }
+
+        cCitasMedicas cita = gestorCitas.getCitas()[fila];
+        cita.setMedico(jTextField4.getText());
+        cita.setFecha(jTextField5.getText());
+        cita.setHora(jTextField6.getText());
+        cita.setConsultorio(jTextField7.getText());
+        cita.setModalidad(jComboBox1.getSelectedItem().toString());
+        cita.setEstado(jComboBox2.getSelectedItem().toString());
+
+        cargarTabla();
+        limpiarCampos();
+        JOptionPane.showMessageDialog(this, "Cita modificada");
+    }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        
+        int fila = jTable1.getSelectedRow();
+        if (fila < 0) {
+            JOptionPane.showMessageDialog(this, "Seleccione una fila");
+            return;
+        }
+
+        gestorCitas.eliminarCita(fila);
+        cargarTabla();
+        limpiarCampos();
+        JOptionPane.showMessageDialog(this, "Cita eliminada");  
+    }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox2ActionPerformed
+
+    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
+        // TODO add your handling code here:
+        int fila = jTable1.getSelectedRow();
+        if (fila < 0) return;
+
+        cCitasMedicas cita = gestorCitas.getCitas()[fila];
+
+        jTextField4.setText(cita.getMedico());
+        jTextField5.setText(cita.getFecha());
+        jTextField6.setText(cita.getHora());
+        jTextField7.setText(cita.getConsultorio());
+        jComboBox1.setSelectedItem(cita.getModalidad());
+        jComboBox2.setSelectedItem(cita.getEstado());
+    }//GEN-LAST:event_jTable1MouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -335,10 +533,8 @@ public class AgendaciónCitas extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new AgendaciónCitas().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new AgendaciónCitas().setVisible(true);
         });
     }
 
